@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="gradeinboxmarginright">55dp</dimen>
+    <dimen name="gradeinboxmarginleft">10dp</dimen>
+    <dimen name="gradetextsize">20dp</dimen>
+    <dimen name="nameuniversityinboxtextsize">45dp</dimen>
+    <dimen name="submittextsize">50dp</dimen>
+    <dimen name="studentdetailstextsize">20dp</dimen>
+    <dimen name="studentdetailsmarginleft">10dp</dimen>
+</resources>

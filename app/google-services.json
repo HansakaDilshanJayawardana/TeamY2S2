@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "152805820665",
+    "project_id": "edubank-95c8c",
+    "storage_bucket": "edubank-95c8c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:152805820665:android:716671d0aad19dca03fa28",
+        "android_client_info": {
+          "package_name": "com.example.edubank"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "152805820665-jjci8ecbqakgt7p3ubfjkljpf7dv75o8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBI1mSMqPJ6jIwvDGRm7a4OLmh2SFLAjVE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "152805820665-jjci8ecbqakgt7p3ubfjkljpf7dv75o8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

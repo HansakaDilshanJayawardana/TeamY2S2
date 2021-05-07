@@ -1,0 +1,73 @@
+<resources>
+    <string name="app_name">EduBank</string>
+    <string name="GradePoint">Grade Point</string>
+    <string name="gpa">GPA</string>
+    <string name="StudentName"> </string>
+    <string name="UnversityName"> </string>
+    <string name="cGPA"> 0.0</string>
+    <string name="finalizeGPA" />
+    <string name="gpabtnname">GPA</string>
+    <string name="gradesMain">Grades</string>
+    <string name="settingsbtnname">SETTINGS</string>
+    <string name="apptitlename">EDUBANK</string>
+    <string name="drawersettingsname">Settings</string>
+    <string name="drawerversionname">Version</string>
+    <string name="draweraboutname">About</string>
+    <string name="drawerfeedbackname">Feedback</string>
+    <string name="gradesbackname">GRADES</string>
+    <string name="gradepointschangestitle">Grade Points Changes</string>
+    <string name="donebtntext">DONE</string>
+    <string name="aplusgrade">A+ Grade</string>
+    <string name="aminusgrade">A- Grade</string>
+    <string name="bplusgrdae">B+ Grade</string>
+    <string name="bminusgrade">B- Grade</string>
+    <string name="cplusgrade">C+Grade</string>
+    <string name="cminusgrade">C-Grade</string>
+    <string name="dplusgrade">D+Grade</string>
+    <string name="nameuniversityGPAtitle">GPA</string>
+    <string name="userstudentname">Your Name</string>
+    <string name="nameuniversityUniversity">University</string>
+    <string name="submittext">SUBMIT</string>
+    <string name="calculateGPAtitle">Calculate GPA</string>
+    <string name="studentname">Student Name :</string>
+    <string name="semster1btntext">SEMESTER 1</string>
+    <string name="semester2btntext">SEMESTER 2</string>
+    <string name="semester3btntext">SEMESTER 3</string>
+    <string name="semester4btntext">SEMESTER 4</string>
+    <string name="semester5btntext">SEMESTER 5</string>
+    <string name="semester6btntext">SEMESTER 6</string>
+    <string name="semester7btntext">SEMESTER 7</string>
+    <string name="semester8btntext">SEMESTER 8</string>
+    <string name="clearallresults">CLEAR ALL RESULTS</string>
+    <string name="totalmodulestext">Total Modules</string>
+    <string name="calculataegpabtntext">CALCULATE GPA</string>
+    <string name="bottomschedule">Schedule</string>
+    <string name="bottomcourses">Courses</string>
+    <string name="bottomgrades">Grades</string>
+    <string name="bottomexamschedule">Exam Schedule</string>
+    <string name="modulename">Enter Module</string>
+    <string name="addbtn">ADD</string>
+    <string name="gradepointsaddtitle">Add Grade Points</string>
+    <string-array name="grades_picker_array">
+        <item>A+</item>
+        <item>A</item>
+        <item>A-</item>
+        <item>B+</item>
+        <item>B</item>
+        <item>B-</item>
+        <item>C+</item>
+        <item>C</item>
+        <item>C-</item>
+        <item>D+</item>
+        <item>D</item>
+        <item>E</item>
+    </string-array>
+    <string-array name="credits_picker_array">
+        <item>6</item>
+        <item>5</item>
+        <item>4</item>
+        <item>3</item>
+        <item>2</item>
+        <item>1</item>
+    </string-array>
+</resources>

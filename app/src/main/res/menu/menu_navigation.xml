@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/schedulenav"
+        android:icon="@drawable/ic_schedule"
+        android:title="@string/bottomschedule" />
+
+    <item
+        android:id="@+id/coursesnav"
+        android:icon="@drawable/ic_courses"
+        android:title="@string/bottomcourses" />
+
+    <item
+        android:id="@+id/gradesnav"
+        android:icon="@drawable/ic_grades"
+        android:title="@string/bottomgrades" />
+
+    <item
+        android:id="@+id/examschedulenav"
+        android:icon="@drawable/ic_exam_schedule"
+        android:title="@string/bottomexamschedule" />
+
+</menu>

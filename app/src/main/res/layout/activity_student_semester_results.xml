@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/studentsemesterresults"
+    tools:context=".StudentSemesterResults">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background"
+        android:orientation="vertical"
+        android:textAlignment="center">
+
+        <include layout="@layout/back_nav_bar"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="25dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:gravity="center"
+                android:text="Module"
+                android:textColor="@color/mainColor"
+                android:textSize="25dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="65dp"
+                android:gravity="center"
+                android:text="Grade"
+                android:textColor="@color/mainColor"
+                android:textSize="25dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:gravity="center"
+                android:text="Credits"
+                android:textColor="@color/mainColor"
+                android:textSize="25dp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="10dp">
+
+            <EditText
+                android:id="@+id/module1"
+                android:layout_width="170dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="5dp"
+                android:background="@drawable/number_border"
+                android:gravity="center"
+                android:inputType="text"
+                android:text=""
+                android:hint="@string/modulename"
+                android:textColor="@color/inboxcolor"
+                android:textColorHint="@color/inboxcolor"/>
+
+            <Spinner
+                android:id="@+id/module1gradepicker"
+                android:layout_width="85dp"
+                android:layout_height="match_parent"
+                android:entries="@array/grades_picker_array"
+                android:layout_marginLeft="15dp"
+                android:padding="10dp"
+                android:spinnerMode="dialog"
+                android:backgroundTint="@color/mainColor"
+                android:textAlignment="center" />
+
+            <Spinner
+                android:id="@+id/module1creditspicker"
+                android:layout_width="85dp"
+                android:layout_height="match_parent"
+                android:entries="@array/credits_picker_array"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="10dp"
+                android:padding="10dp"
+                android:spinnerMode="dialog"
+                android:backgroundTint="@color/mainColor"
+                android:textAlignment="center"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="10dp">
+
+            <EditText
+                android:id="@+id/module2"
+                android:layout_width="170dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="5dp"
+                android:background="@drawable/number_border"
+                android:gravity="center"
+                android:inputType="text"
+                android:text=""
+                android:hint="@string/modulename"
+                android:textColor="@color/inboxcolor"
+                android:textColorHint="@color/inboxcolor" />
+
+            <Spinner
+                android:id="@+id/module2gradepicker"
+                android:layout_width="85dp"
+                android:layout_height="match_parent"
+                android:entries="@array/grades_picker_array"
+                android:layout_marginLeft="15dp"
+                android:padding="10dp"
+                android:spinnerMode="dialog"
+                android:backgroundTint="@color/mainColor"
+                android:textAlignment="center" />
+
+            <Spinner
+                android:id="@+id/module2creditspicker"
+                android:layout_width="85dp"
+                android:layout_height="match_parent"
+                android:entries="@array/credits_picker_array"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="10dp"
+                android:padding="10dp"
+                android:spinnerMode="dialog"
+                android:backgroundTint="@color/mainColor"
+                android:textAlignment="center"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="10dp">
+
+            <EditText
+                android:id="@+id/module3"
+                android:layout_width="170dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="5dp"
+                android:background="@drawable/number_border"
+                android:gravity="center"
+                android:inputType="text"
+                android:text=""
+                android:hint="@string/modulename"
+                android:textColor="@color/inboxcolor"
+                android:textColorHint="@color/inboxcolor" />
+
+            <Spinner
+                android:id="@+id/module3gradepicker"
+                android:layout_width="85dp"
+                android:layout_height="match_parent"
+                android:entries="@array/grades_picker_array"
+                android:layout_marginLeft="15dp"
+                android:padding="10dp"
+                android:spinnerMode="dialog"
+                android:backgroundTint="@color/mainColor"
+                android:textAlignment="center" />
+
+            <Spinner
+                android:id="@+id/module3creditspicker"
+                android:layout_width="85dp"
+                android:layout_height="match_parent"
+                android:entries="@array/credits_picker_array"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="10dp"
+                android:padding="10dp"
+                android:spinnerMode="dialog"
+                android:backgroundTint="@color/mainColor"
+                android:textAlignment="center"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="10dp">
+
+            <EditText
+                android:id="@+id/module4"
+                android:layout_width="170dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="5dp"
+                android:background="@drawable/number_border"
+                android:gravity="center"
+                android:inputType="text"
+                android:text=""
+                android:hint="@string/modulename"
+                android:textColor="@color/inboxcolor"
+                android:textColorHint="@color/inboxcolor" />
+
+            <Spinner
+                android:id="@+id/module4gradepicker"
+                android:layout_width="85dp"
+                android:layout_height="match_parent"
+                android:entries="@array/grades_picker_array"
+                android:layout_marginLeft="15dp"
+                android:padding="10dp"
+                android:spinnerMode="dialog"
+                android:backgroundTint="@color/mainColor"
+                android:textAlignment="center" />
+
+            <Spinner
+                android:id="@+id/module4creditspicker"
+                android:layout_width="85dp"
+                android:layout_height="match_parent"
+                android:entries="@array/credits_picker_array"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="10dp"
+                android:padding="10dp"
+                android:spinnerMode="dialog"
+                android:backgroundTint="@color/mainColor"
+                android:textAlignment="center"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="10dp">
+
+            <EditText
+                android:id="@+id/module5"
+                android:layout_width="170dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="5dp"
+                android:background="@drawable/number_border"
+                android:gravity="center"
+                android:inputType="text"
+                android:text=""
+                android:hint="@string/modulename"
+                android:textColor="@color/inboxcolor"
+                android:textColorHint="@color/inboxcolor" />
+
+            <Spinner
+                android:id="@+id/module5gradepicker"
+                android:layout_width="85dp"
+                android:layout_height="match_parent"
+                android:entries="@array/grades_picker_array"
+                android:layout_marginLeft="15dp"
+                android:padding="10dp"
+                android:spinnerMode="dialog"
+                android:backgroundTint="@color/mainColor"
+                android:textAlignment="center" />
+
+            <Spinner
+                android:id="@+id/module5creditspicker"
+                android:layout_width="85dp"
+                android:layout_height="match_parent"
+                android:entries="@array/credits_picker_array"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="10dp"
+                android:padding="10dp"
+                android:spinnerMode="dialog"
+                android:backgroundTint="@color/mainColor"
+                android:textAlignment="center"/>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/calculategpasubmitbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="150dp"
+            android:layout_marginRight="50dp"
+            android:background="@drawable/button_border"
+            android:text="@string/calculataegpabtntext"
+            android:textColor="@color/mainColor"
+            android:textSize="25dp"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            app:backgroundTint="@color/mainColor" />
+
+        <include
+            layout="@layout/activity_bottom_nav_bar"/>
+
+    </LinearLayout>
+
+</androidx.drawerlayout.widget.DrawerLayout>
