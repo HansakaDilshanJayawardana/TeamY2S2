@@ -422,18 +422,6 @@
         </LinearLayout>
 
         <Button
-            android:id="@+id/donebtnadd"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:layout_marginTop="5dp"
-            android:layout_marginRight="@dimen/gradeinboxmarginright"
-            android:background="@drawable/submit_button_border"
-            android:text="@string/donebtntext"
-            android:textColor="@color/mainColor"
-            app:backgroundTint="@color/mainColor" />
-
-        <Button
             android:id="@+id/addbtnadd"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
