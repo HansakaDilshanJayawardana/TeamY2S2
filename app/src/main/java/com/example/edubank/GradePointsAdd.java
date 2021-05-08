@@ -37,7 +37,6 @@ public class GradePointsAdd extends AppCompatActivity {
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
         backbtn = findViewById(R.id.backbtn);
         addbtnadd = findViewById(R.id.addbtnadd);
-        donebtnadd = findViewById(R.id.donebtnadd);
         apluspointadd = findViewById(R.id.apluspointadd);
         apointadd = findViewById(R.id.apointadd);
         aminuspointadd = findViewById(R.id.aminuspointadd);
