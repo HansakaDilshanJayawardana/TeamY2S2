@@ -48,6 +48,7 @@
     <string name="modulename">Enter Module</string>
     <string name="addbtn">ADD</string>
     <string name="gradepointsaddtitle">Add Grade Points</string>
+    <string name="inputresultsbtn">GPA</string>
     <string-array name="grades_picker_array">
         <item>A+</item>
         <item>A</item>

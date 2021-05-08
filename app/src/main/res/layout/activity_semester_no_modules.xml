@@ -15,7 +15,7 @@
         android:orientation="vertical"
         android:textAlignment="center">
 
-        <include layout="@layout/back_nav_bar"/>
+        <include layout="@layout/back_nav_bar" />
 
         <TextView
             android:id="@+id/semsterTitle"
@@ -36,9 +36,9 @@
             android:layout_marginRight="50dp"
             android:background="@drawable/number_border"
             android:ems="3"
+            android:hint="@string/totalmodulestext"
             android:inputType="number"
             android:text=""
-            android:hint="@string/totalmodulestext"
             android:textAlignment="center"
             android:textColor="@color/inboxsecondcolor"
             android:textColorHint="@color/inboxsecondcolor"
@@ -60,8 +60,7 @@
             android:textStyle="bold"
             app:backgroundTint="@color/mainColor" />
 
-        <include
-            layout="@layout/activity_bottom_nav_bar"/>
+        <include layout="@layout/activity_bottom_nav_bar" />
 
     </LinearLayout>
 

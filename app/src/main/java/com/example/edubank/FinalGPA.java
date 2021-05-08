@@ -41,49 +41,49 @@ public class FinalGPA extends AppCompatActivity {
         backtocalculategpabtn = findViewById(R.id.backtocalculategpabtn);
         gpaView = findViewById(R.id.gpafinal);
 
-        //Retrieve Grades Data
-        ArrayList<Results> ary = new ArrayList<>();//Create array list object
+//        //Retrieve Grades Data
+//        ArrayList<Results> ary = new ArrayList<>();//Create array list object
+//
+//        //Accessing child nodes
+//        dbref = firebaseDatabase.getInstance().getReference().child("Semester1").child("Results").child("Module");
+//
+//        dbref.addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(final com.google.firebase.database.DataSnapshot dataSnapshot) {
+//                Log.i("check7", String.valueOf(dataSnapshot));
+//                ary.clear(); // ArrayList<Pojo/Object> \\
+//                int i=1;
+//                for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
+//
+//                    Log.i("check9", String.valueOf(dataSnapshot));
+//                    Results results = postSnapshot.child("Module").getValue(Results.class);
+//                    Log.i("check8", String.valueOf(results));
+//
+//                    //Use the dataType you are using and also use the reference of those childs inside arrays\\
+//
+//                    // Putting Data into Getter Setter \\
+//                    System.out.println(results);
+//                    ary.add(results);
+//                    i++;
+//
+//                }
+//
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError error) {
+//
+//            }
+//
+//        });
 
-        //Accessing child nodes
-        dbref = firebaseDatabase.getInstance().getReference().child("Semester1").child("Results").child("Module");
-
-        dbref.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(final com.google.firebase.database.DataSnapshot dataSnapshot) {
-                Log.i("check7", String.valueOf(dataSnapshot));
-                ary.clear(); // ArrayList<Pojo/Object> \\
-                int i=1;
-                for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
-
-                    Log.i("check9", String.valueOf(dataSnapshot));
-                    Results results = postSnapshot.child("Module").getValue(Results.class);
-                    Log.i("check8", String.valueOf(results));
-
-                    //Use the dataType you are using and also use the reference of those childs inside arrays\\
-
-                    // Putting Data into Getter Setter \\
-                    System.out.println(results);
-                    ary.add(results);
-                    i++;
-
-                }
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-
-        });
-
-        //Calculate GPA
-        for (Results i:ary){
-            gpa=(gpa+getGradePoint(i))/5f;
-        }
-
-        //View Calculated GPA
-        gpaView.setText(String.valueOf(gpa));
+//        //Calculate GPA
+//        for (Results i:ary){
+//            gpa=(gpa+getGradePoint(i))/5f;
+//        }
+//
+//        //View Calculated GPA
+//        gpaView.setText(String.valueOf(gpa));
 
         //Direct to Previous Interface
         backbtn.setOnClickListener(new View.OnClickListener() {
@@ -134,28 +134,28 @@ public class FinalGPA extends AppCompatActivity {
     }
 
     //getGradePoint method
-    public float getGradePoint(Results results){
-        if(results.getGrade().equals("A")|| results.getGrade().equals("A+"))
-            return 4f;
-        else if(results.getGrade().equals("A-"))
-            return 3.7f;
-        else if(results.getGrade().equals("B+"))
-            return 3.3f;
-        else if(results.getGrade().equals("B"))
-            return 3f;
-        else if(results.getGrade().equals("B-"))
-            return 2.7f;
-        else if(results.getGrade().equals("C+"))
-            return 2.3f;
-        else if(results.getGrade().equals("C"))
-            return 2f;
-        else if(results.getGrade().equals("C-"))
-            return 1.7f;
-        else if(results.getGrade().equals("D+"))
-            return 1.3f;
-        else if(results.getGrade().equals("D"))
-            return 1f;
-        else
-            return 0f;
-    }
+//    public float getGradePoint(Results results){
+//        if(results.getGrade().equals("A")|| results.getGrade().equals("A+"))
+//            return 4f;
+//        else if(results.getGrade().equals("A-"))
+//            return 3.7f;
+//        else if(results.getGrade().equals("B+"))
+//            return 3.3f;
+//        else if(results.getGrade().equals("B"))
+//            return 3f;
+//        else if(results.getGrade().equals("B-"))
+//            return 2.7f;
+//        else if(results.getGrade().equals("C+"))
+//            return 2.3f;
+//        else if(results.getGrade().equals("C"))
+//            return 2f;
+//        else if(results.getGrade().equals("C-"))
+//            return 1.7f;
+//        else if(results.getGrade().equals("D+"))
+//            return 1.3f;
+//        else if(results.getGrade().equals("D"))
+//            return 1f;
+//        else
+//            return 0f;
+//    }
 }

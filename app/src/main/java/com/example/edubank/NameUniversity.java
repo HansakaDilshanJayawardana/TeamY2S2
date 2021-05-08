@@ -86,8 +86,9 @@ public class NameUniversity extends AppCompatActivity {
                         clear();
 
                         Intent CalculategpaIntent = new Intent(NameUniversity.this, CalculateGPA.class);
-                        CalculategpaIntent.putExtra("userName", String.valueOf(maxid) );
-                        CalculategpaIntent.putExtra("universityName", String.valueOf(maxid) );
+//                        CalculategpaIntent.putExtra("userName", String.valueOf(maxid) );
+//                        CalculategpaIntent.putExtra("universityName", String.valueOf(maxid) );
+                        CurrentGPAUser.getInstance().setMaxId(maxid);
                         startActivity(CalculategpaIntent);
 
                     }

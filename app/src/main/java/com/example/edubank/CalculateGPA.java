@@ -17,6 +17,7 @@ import android.widget.Toast;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
@@ -35,7 +36,7 @@ public class CalculateGPA extends AppCompatActivity {
         setContentView(R.layout.activity_calculate_g_p);
 
         //Show User Name and University Name
-        showAllUserDaata();
+//        showAllUserDaata();
 
         //Assign variable
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
@@ -51,8 +52,25 @@ public class CalculateGPA extends AppCompatActivity {
         universityName = findViewById(R.id.universityName);
         studentName = findViewById(R.id.studentName);
 
-        Query checkUser = FirebaseDatabase.getInstance().getReference("UserDetails").child(name);
-        Log.i("check1", String.valueOf(checkUser));
+        Query checkUser = FirebaseDatabase.getInstance().getReference("UserDetails").child(String.valueOf(CurrentGPAUser.getInstance().getMaxId()));
+        Log.i("query", checkUser.toString());
+//        final FirebaseDatabase database = FirebaseDatabase.getInstance();
+//        DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("UserDetails").child("8");
+//
+//// Attach a listener to read the data at our posts reference
+//        reference.addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(DataSnapshot dataSnapshot) {
+//               String userDetails = dataSnapshot.toString();
+//                Log.i("checkUser", userDetails);
+//            }
+//
+//            @Override
+//            public void onCancelled(DatabaseError databaseError) {
+//                System.out.println("The read failed: " + databaseError.getCode());
+//            }
+//        });
+
 
         checkUser.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -92,7 +110,7 @@ public class CalculateGPA extends AppCompatActivity {
         semster1btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent semesterNoModIntent = new Intent(CalculateGPA.this, SemesterNoModules.class);
+                Intent semesterNoModIntent = new Intent(CalculateGPA.this, StudentSemesterResults.class);
                 startActivity(semesterNoModIntent);
                 finish();
             }
@@ -101,7 +119,7 @@ public class CalculateGPA extends AppCompatActivity {
         semster2btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent semesterNoModIntent = new Intent(CalculateGPA.this, SemesterNoModules.class);
+                Intent semesterNoModIntent = new Intent(CalculateGPA.this, StudentSemesterResults.class);
                 startActivity(semesterNoModIntent);
                 finish();
             }
@@ -110,7 +128,7 @@ public class CalculateGPA extends AppCompatActivity {
         semster3btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent semesterNoModIntent = new Intent(CalculateGPA.this, SemesterNoModules.class);
+                Intent semesterNoModIntent = new Intent(CalculateGPA.this, StudentSemesterResults.class);
                 startActivity(semesterNoModIntent);
                 finish();
             }
@@ -119,7 +137,7 @@ public class CalculateGPA extends AppCompatActivity {
         semster4btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent semesterNoModIntent = new Intent(CalculateGPA.this, SemesterNoModules.class);
+                Intent semesterNoModIntent = new Intent(CalculateGPA.this, StudentSemesterResults.class);
                 startActivity(semesterNoModIntent);
                 finish();
             }
@@ -128,7 +146,7 @@ public class CalculateGPA extends AppCompatActivity {
         semster5btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent semesterNoModIntent = new Intent(CalculateGPA.this, SemesterNoModules.class);
+                Intent semesterNoModIntent = new Intent(CalculateGPA.this, StudentSemesterResults.class);
                 startActivity(semesterNoModIntent);
                 finish();
             }
@@ -137,7 +155,7 @@ public class CalculateGPA extends AppCompatActivity {
         semster6btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent semesterNoModIntent = new Intent(CalculateGPA.this, SemesterNoModules.class);
+                Intent semesterNoModIntent = new Intent(CalculateGPA.this, StudentSemesterResults.class);
                 startActivity(semesterNoModIntent);
                 finish();
             }
@@ -146,7 +164,7 @@ public class CalculateGPA extends AppCompatActivity {
         semster7btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent semesterNoModIntent = new Intent(CalculateGPA.this, SemesterNoModules.class);
+                Intent semesterNoModIntent = new Intent(CalculateGPA.this, StudentSemesterResults.class);
                 startActivity(semesterNoModIntent);
                 finish();
             }
@@ -155,7 +173,7 @@ public class CalculateGPA extends AppCompatActivity {
         semster8btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent semesterNoModIntent = new Intent(CalculateGPA.this, SemesterNoModules.class);
+                Intent semesterNoModIntent = new Intent(CalculateGPA.this, StudentSemesterResults.class);
                 startActivity(semesterNoModIntent);
                 finish();
             }
@@ -189,11 +207,12 @@ public class CalculateGPA extends AppCompatActivity {
         });
     }
 
-    //Show User Name and University Name Method
-    private void showAllUserDaata() {
-        Intent intent = getIntent();
-
-        name = intent.getStringExtra("userName");
-        university = intent.getStringExtra("universityName");
-    }
+//    //Show User Name and University Name Method
+//    private void showAllUserDaata() {
+//        Intent intent = getIntent();
+//
+//        name = intent.getStringExtra("userName");
+//        university = intent.getStringExtra("universityName");
+//        Log.i("check10", "Name :" + name + " || University : " + university);
+//    }
 }
