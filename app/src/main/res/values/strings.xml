@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">EduScore</string>
+    <string name="app_name">EduBank</string>
     <string name="GradePoint">Grade Point</string>
     <string name="gpa">GPA</string>
     <string name="StudentName"> </string>
@@ -9,7 +9,7 @@
     <string name="gpabtnname">GPA</string>
     <string name="gradesMain">Grades</string>
     <string name="settingsbtnname">SETTINGS</string>
-    <string name="apptitlename">EDUSCORE</string>
+    <string name="apptitlename">EDUBANK</string>
     <string name="drawersettingsname">Settings</string>
     <string name="drawerversionname">Version</string>
     <string name="draweraboutname">About</string>

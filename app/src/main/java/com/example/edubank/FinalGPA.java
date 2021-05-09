@@ -19,16 +19,17 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 
 public class FinalGPA extends AppCompatActivity {
     //Initialize variable
     ImageView backbtn;
-    TextView gpaView;
+    TextView gpaView, cgpaView;
     Button backtocalculategpabtn;
-    DatabaseReference dbref;
-    FirebaseDatabase firebaseDatabase;
     private float gpa;
+    private float cgpa;
+    private float credits;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,59 +41,35 @@ public class FinalGPA extends AppCompatActivity {
         backbtn = findViewById(R.id.backbtn);
         backtocalculategpabtn = findViewById(R.id.backtocalculategpabtn);
         gpaView = findViewById(R.id.gpafinal);
+        cgpaView = findViewById(R.id.cgpasemfinal);
 
-        Intent finalInetnt = getIntent();
+        Intent finalInetnt = getIntent();//Create Intent Object
+
+        //Get Passed Grades
         String grade1 = finalInetnt.getStringExtra("grade1");
         String grade2 = finalInetnt.getStringExtra("grade2");
         String grade3 = finalInetnt.getStringExtra("grade3");
         String grade4 = finalInetnt.getStringExtra("grade4");
         String grade5 = finalInetnt.getStringExtra("grade5");
 
-        gpa = (getGradePoint(grade1) + getGradePoint(grade2) + getGradePoint(grade3) + getGradePoint(grade4) + getGradePoint(grade5))/5;
-        gpaView.setText(Float.toString(gpa));
-//        //Retrieve Grades Data
-//        ArrayList<Results> ary = new ArrayList<>();//Create array list object
-//
-//        //Accessing child nodes
-//        dbref = firebaseDatabase.getInstance().getReference().child("Semester1").child("Results").child("Module");
-//
-//        dbref.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(final com.google.firebase.database.DataSnapshot dataSnapshot) {
-//                Log.i("check7", String.valueOf(dataSnapshot));
-//                ary.clear(); // ArrayList<Pojo/Object> \\
-//                int i=1;
-//                for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
-//
-//                    Log.i("check9", String.valueOf(dataSnapshot));
-//                    Results results = postSnapshot.child("Module").getValue(Results.class);
-//                    Log.i("check8", String.valueOf(results));
-//
-//                    //Use the dataType you are using and also use the reference of those childs inside arrays\\
-//
-//                    // Putting Data into Getter Setter \\
-//                    System.out.println(results);
-//                    ary.add(results);
-//                    i++;
-//
-//                }
-//
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError error) {
-//
-//            }
-//
-//        });
+        //Get Passed Credits
+        String credit1 = finalInetnt.getStringExtra("credit1");
+        String credit2 = finalInetnt.getStringExtra("credit2");
+        String credit3 = finalInetnt.getStringExtra("credit3");
+        String credit4 = finalInetnt.getStringExtra("credit4");
+        String credit5 = finalInetnt.getStringExtra("credit5");
 
-//        //Calculate GPA
-//        for (Results i:ary){
-//            gpa=(gpa+getGradePoint(i))/5f;
-//        }
-//
-//        //View Calculated GPA
-//        gpaView.setText(String.valueOf(gpa));
+        //GPA Calculation
+        gpa = (getGradePoint(grade1) + getGradePoint(grade2) + getGradePoint(grade3) + getGradePoint(grade4) + getGradePoint(grade5))/5;
+        //GPA View
+        gpaView.setText(Float.toString(gpa));
+
+        //CGPA Calculation
+        credits = (getCredit(credit1) + getCredit(credit2) + getCredit(credit3) + getCredit(credit4) + getCredit(credit5));
+        cgpa = ((getGradePoint(grade1) * getCredit(credit1)) + (getGradePoint(grade2) * getCredit(credit2)) + (getGradePoint(grade3) * getCredit(credit3)) + (getGradePoint(grade4) * getCredit(credit4)) + (getGradePoint(grade5) * getCredit(credit5))) / credits;
+
+        //CGPA View
+        cgpaView.setText(Float.toString(cgpa));
 
         //Direct to Previous Interface
         backbtn.setOnClickListener(new View.OnClickListener() {
@@ -166,5 +143,21 @@ public class FinalGPA extends AppCompatActivity {
             return 1f;
         else
             return 0f;
+    }
+
+    //getCredit method
+    private float getCredit(String credits){
+        if (credits.equals("6"))
+            return 6f;
+        else if (credits.equals("5"))
+            return 5f;
+        else if (credits.equals("4"))
+            return 4f;
+        else if (credits.equals("3"))
+            return 3f;
+        else if (credits.equals("2"))
+            return 2f;
+        else
+            return 1f;
     }
 }

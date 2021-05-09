@@ -23,7 +23,7 @@ import com.google.firebase.database.ValueEventListener;
 public class GradePointsAdd extends AppCompatActivity {
     //Initialize variable
     ImageView backbtn;
-    Button donebtnadd, addbtnadd;
+    Button addbtnadd;
     EditText apluspointadd, apointadd, aminuspointadd, bpluspointadd, bpointadd, bminupointadd, cpluspointadd, cpointadd, cminuspointadd, dpluspointadd, dpointadd, epointadd;
     GradePoint gradePoint;
     long maxid = 0;
@@ -50,8 +50,10 @@ public class GradePointsAdd extends AppCompatActivity {
         dpointadd = findViewById(R.id.dpointadd);
         epointadd = findViewById(R.id.epointadd);
 
+        //Create a GradePoint model class object
         gradePoint = new GradePoint();
 
+        //Accessing child nodes
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("GradePoint");
 
         reference.addValueEventListener(new ValueEventListener() {
@@ -129,6 +131,10 @@ public class GradePointsAdd extends AppCompatActivity {
                         reference.child(String.valueOf(maxid)).setValue(gradePoint);
                         Toast.makeText(GradePointsAdd.this, "Grade Points Added Successfully", Toast.LENGTH_LONG).show();
                         clear();
+
+                        Intent GPASettingsIntent = new Intent(GradePointsAdd.this, GPAMainActivity.class);
+                        CurrentGPAUser.getInstance().setGpMaxId(maxid);
+                        startActivity(GPASettingsIntent);
                     }
                 } catch (NumberFormatException e) {
                     Toast.makeText(getApplicationContext(), "Invalid Number Type", Toast.LENGTH_LONG).show();
@@ -140,7 +146,7 @@ public class GradePointsAdd extends AppCompatActivity {
         backbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent gpaMainIntent = new Intent(GradePointsAdd.this, GPASettings.class);
+                Intent gpaMainIntent = new Intent(GradePointsAdd.this, GPAMainActivity.class);
                 startActivity(gpaMainIntent);
                 finish();
             }
@@ -174,6 +180,7 @@ public class GradePointsAdd extends AppCompatActivity {
         });
     }
 
+    //Clear Method
     public void clear() {
         apluspointadd.setText(null);
         apointadd.setText(null);

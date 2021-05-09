@@ -28,15 +28,11 @@ public class CalculateGPA extends AppCompatActivity {
     Button semster1btn, semster2btn, semster3btn, semster4btn, semster5btn, semster6btn, semster7btn, semster8btn;
     TextView studentName, universityName;
     String usernameFromDB;
-    String  name, university;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calculate_g_p);
-
-        //Show User Name and University Name
-//        showAllUserDaata();
 
         //Assign variable
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
@@ -52,39 +48,21 @@ public class CalculateGPA extends AppCompatActivity {
         universityName = findViewById(R.id.universityName);
         studentName = findViewById(R.id.studentName);
 
+        //Accessing Child Nodes Using Singleton
         Query checkUser = FirebaseDatabase.getInstance().getReference("UserDetails").child(String.valueOf(CurrentGPAUser.getInstance().getMaxId()));
-        Log.i("query", checkUser.toString());
-//        final FirebaseDatabase database = FirebaseDatabase.getInstance();
-//        DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("UserDetails").child("8");
-//
-//// Attach a listener to read the data at our posts reference
-//        reference.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(DataSnapshot dataSnapshot) {
-//               String userDetails = dataSnapshot.toString();
-//                Log.i("checkUser", userDetails);
-//            }
-//
-//            @Override
-//            public void onCancelled(DatabaseError databaseError) {
-//                System.out.println("The read failed: " + databaseError.getCode());
-//            }
-//        });
-
 
         checkUser.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                Log.i("check3", String.valueOf(snapshot));
                 if (snapshot.hasChildren()) {
+                    //Get UserName from DB
                     usernameFromDB = snapshot.child("userName").getValue().toString();
-                    Log.i("check4",usernameFromDB);
-                    studentName.setText(usernameFromDB);
+                    studentName.setText(usernameFromDB);//Set UserName to Student Name View
+                    //Get University Name from DB and set University Name to University Name View
                     String universityFromDB = snapshot.child("universityName").getValue().toString();
                     universityName.setText(universityFromDB);
 
                 } else {
-
                     Toast.makeText(getApplicationContext(), "Cannot Find User Details", Toast.LENGTH_LONG).show();
                 }
             }
@@ -207,12 +185,4 @@ public class CalculateGPA extends AppCompatActivity {
         });
     }
 
-//    //Show User Name and University Name Method
-//    private void showAllUserDaata() {
-//        Intent intent = getIntent();
-//
-//        name = intent.getStringExtra("userName");
-//        university = intent.getStringExtra("universityName");
-//        Log.i("check10", "Name :" + name + " || University : " + university);
-//    }
 }

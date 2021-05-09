@@ -43,7 +43,7 @@ public class NameUniversity extends AppCompatActivity {
         yourname = findViewById(R.id.yourname);
         university = findViewById(R.id.university);
 
-        //Create a model class object
+        //Create a UserDetails model class object
         userDetails = new UserDetails();
 
         //Accessing child nodes
@@ -86,8 +86,6 @@ public class NameUniversity extends AppCompatActivity {
                         clear();
 
                         Intent CalculategpaIntent = new Intent(NameUniversity.this, CalculateGPA.class);
-//                        CalculategpaIntent.putExtra("userName", String.valueOf(maxid) );
-//                        CalculategpaIntent.putExtra("universityName", String.valueOf(maxid) );
                         CurrentGPAUser.getInstance().setMaxId(maxid);
                         startActivity(CalculategpaIntent);
 

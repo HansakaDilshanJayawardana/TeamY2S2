@@ -45,7 +45,7 @@ public class GPAMainActivity extends AppCompatActivity {
         gpasettingsbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent gpaSettingsIntent = new Intent(GPAMainActivity.this, GPASettings.class);
+                Intent gpaSettingsIntent = new Intent(GPAMainActivity.this, GradePointsAdd.class);
                 startActivity(gpaSettingsIntent);
                 finish();
             }
