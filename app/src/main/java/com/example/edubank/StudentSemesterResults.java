@@ -31,7 +31,7 @@ public class StudentSemesterResults extends AppCompatActivity {
     EditText module1, module2, module3, module4, module5;
     Results results;
     long maxid = 0;
-    float gpa =0;
+    float gpa =0.f;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -203,7 +203,7 @@ public class StudentSemesterResults extends AppCompatActivity {
         backbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent semesterModNoIntent = new Intent(StudentSemesterResults.this, SemesterNoModules.class);
+                Intent semesterModNoIntent = new Intent(StudentSemesterResults.this, CalculateGPA.class);
                 startActivity(semesterModNoIntent);
                 finish();
             }
@@ -304,20 +304,26 @@ public class StudentSemesterResults extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Invalid Number Type", Toast.LENGTH_LONG).show();
                 }
                 //Retrieve Grades Data
-                ArrayList<Results> ary = new ArrayList<>();//Create array list object
-                ary.add(new Results(module1.getText().toString(), mod1spinner.getSelectedItem().toString(), mod1spinner2.getSelectedItem().toString()));
-                ary.add(new Results(module2.getText().toString(), mod2spinner.getSelectedItem().toString(), mod2spinner1.getSelectedItem().toString()));
-                ary.add(new Results(module3.getText().toString(), mod3spinner.getSelectedItem().toString(), mod3spinner1.getSelectedItem().toString()));
-                ary.add(new Results(module4.getText().toString(), mod4spinner.getSelectedItem().toString(), mod4spinner1.getSelectedItem().toString()));
-                ary.add(new Results(module5.getText().toString(), mod5spinner.getSelectedItem().toString(), mod5spinner1.getSelectedItem().toString()));
-
-                //Calculate GPA
-                for (Results i:ary){
-                    gpa=(gpa+getGradePoint(i))/5f;
-                }
-                System.out.println(gpa);
-//                Intent finalGPAIntent = new Intent(StudentSemesterResults.this, FinalGPA.class);
-//                startActivity(finalGPAIntent);
+//                ArrayList<Results> ary = new ArrayList<>();//Create array list object
+//                ary.add(new Results(module1.getText().toString(), mod1spinner.getSelectedItem().toString(), mod1spinner2.getSelectedItem().toString()));
+//                ary.add(new Results(module2.getText().toString(), mod2spinner.getSelectedItem().toString(), mod2spinner1.getSelectedItem().toString()));
+//                ary.add(new Results(module3.getText().toString(), mod3spinner.getSelectedItem().toString(), mod3spinner1.getSelectedItem().toString()));
+//                ary.add(new Results(module4.getText().toString(), mod4spinner.getSelectedItem().toString(), mod4spinner1.getSelectedItem().toString()));
+//                ary.add(new Results(module5.getText().toString(), mod5spinner.getSelectedItem().toString(), mod5spinner1.getSelectedItem().toString()));
+//
+//                System.out.println(ary);
+//                //Calculate GPA
+//                for (Results i:ary){
+//                    gpa=(gpa+getGradePoint(i))/5f;
+//                }
+//                System.out.println(gpa);
+                Intent finalGPAIntent = new Intent(StudentSemesterResults.this, FinalGPA.class);
+                finalGPAIntent.putExtra("grade1", mod1spinner.getSelectedItem().toString());
+                finalGPAIntent.putExtra("grade2", mod2spinner.getSelectedItem().toString());
+                finalGPAIntent.putExtra("grade3", mod3spinner.getSelectedItem().toString());
+                finalGPAIntent.putExtra("grade4", mod4spinner.getSelectedItem().toString());
+                finalGPAIntent.putExtra("grade5", mod5spinner.getSelectedItem().toString());
+                startActivity(finalGPAIntent);
             }
         });
 
@@ -333,28 +339,29 @@ public class StudentSemesterResults extends AppCompatActivity {
         module5.setText(null);
     }
 
-    public float getGradePoint(Results results){
-        if(results.getGrade().equals("A")|| results.getGrade().equals("A+"))
-            return 4f;
-        else if(results.getGrade().equals("A-"))
-            return 3.7f;
-        else if(results.getGrade().equals("B+"))
-            return 3.3f;
-        else if(results.getGrade().equals("B"))
-            return 3f;
-        else if(results.getGrade().equals("B-"))
-            return 2.7f;
-        else if(results.getGrade().equals("C+"))
-            return 2.3f;
-        else if(results.getGrade().equals("C"))
-            return 2f;
-        else if(results.getGrade().equals("C-"))
-            return 1.7f;
-        else if(results.getGrade().equals("D+"))
-            return 1.3f;
-        else if(results.getGrade().equals("D"))
-            return 1f;
-        else
-            return 0f;
-    }
+
+//    public float getGradePoint(Results results){
+//        if(results.getGrade().equals("A")|| results.getGrade().equals("A+"))
+//            return 4f;
+//        else if(results.getGrade().equals("A-"))
+//            return 3.7f;
+//        else if(results.getGrade().equals("B+"))
+//            return 3.3f;
+//        else if(results.getGrade().equals("B"))
+//            return 3f;
+//        else if(results.getGrade().equals("B-"))
+//            return 2.7f;
+//        else if(results.getGrade().equals("C+"))
+//            return 2.3f;
+//        else if(results.getGrade().equals("C"))
+//            return 2f;
+//        else if(results.getGrade().equals("C-"))
+//            return 1.7f;
+//        else if(results.getGrade().equals("D+"))
+//            return 1.3f;
+//        else if(results.getGrade().equals("D"))
+//            return 1f;
+//        else
+//            return 0f;
+//    }
 }

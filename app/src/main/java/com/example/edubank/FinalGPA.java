@@ -28,7 +28,7 @@ public class FinalGPA extends AppCompatActivity {
     Button backtocalculategpabtn;
     DatabaseReference dbref;
     FirebaseDatabase firebaseDatabase;
-    float gpa =0;
+    private float gpa;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +41,15 @@ public class FinalGPA extends AppCompatActivity {
         backtocalculategpabtn = findViewById(R.id.backtocalculategpabtn);
         gpaView = findViewById(R.id.gpafinal);
 
+        Intent finalInetnt = getIntent();
+        String grade1 = finalInetnt.getStringExtra("grade1");
+        String grade2 = finalInetnt.getStringExtra("grade2");
+        String grade3 = finalInetnt.getStringExtra("grade3");
+        String grade4 = finalInetnt.getStringExtra("grade4");
+        String grade5 = finalInetnt.getStringExtra("grade5");
+
+        gpa = (getGradePoint(grade1) + getGradePoint(grade2) + getGradePoint(grade3) + getGradePoint(grade4) + getGradePoint(grade5))/5;
+        gpaView.setText(Float.toString(gpa));
 //        //Retrieve Grades Data
 //        ArrayList<Results> ary = new ArrayList<>();//Create array list object
 //
@@ -134,28 +143,28 @@ public class FinalGPA extends AppCompatActivity {
     }
 
     //getGradePoint method
-//    public float getGradePoint(Results results){
-//        if(results.getGrade().equals("A")|| results.getGrade().equals("A+"))
-//            return 4f;
-//        else if(results.getGrade().equals("A-"))
-//            return 3.7f;
-//        else if(results.getGrade().equals("B+"))
-//            return 3.3f;
-//        else if(results.getGrade().equals("B"))
-//            return 3f;
-//        else if(results.getGrade().equals("B-"))
-//            return 2.7f;
-//        else if(results.getGrade().equals("C+"))
-//            return 2.3f;
-//        else if(results.getGrade().equals("C"))
-//            return 2f;
-//        else if(results.getGrade().equals("C-"))
-//            return 1.7f;
-//        else if(results.getGrade().equals("D+"))
-//            return 1.3f;
-//        else if(results.getGrade().equals("D"))
-//            return 1f;
-//        else
-//            return 0f;
-//    }
+    private float getGradePoint(String results){
+        if(results.equals("A")|| results.equals("A+"))
+            return 4f;
+        else if(results.equals("A-"))
+            return 3.7f;
+        else if(results.equals("B+"))
+            return 3.3f;
+        else if(results.equals("B"))
+            return 3f;
+        else if(results.equals("B-"))
+            return 2.7f;
+        else if(results.equals("C+"))
+            return 2.3f;
+        else if(results.equals("C"))
+            return 2f;
+        else if(results.equals("C-"))
+            return 1.7f;
+        else if(results.equals("D+"))
+            return 1.3f;
+        else if(results.equals("D"))
+            return 1f;
+        else
+            return 0f;
+    }
 }
