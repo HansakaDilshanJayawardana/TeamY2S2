@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_schedule"
+        android:icon="@drawable/ic_baseline_schedule"
+        android:title="@string/title_schedule" />
+
+    <item
+        android:id="@+id/navigation_view"
+        android:icon="@drawable/ic_baseline_view_headline"
+        android:title="@string/title_Courses" />
+
+    <item
+        android:id="@+id/navigation_grades"
+        android:icon="@drawable/ic_baseline_star_outline"
+        android:title="@string/title_Grades" />
+
+    <item
+        android:id="@+id/examschedulenav"
+        android:icon="@drawable/ic_baseline_calendar_today"
+        android:title="@string/exam_schedule" />
+
+</menu>

@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">EDU_Bank</string>
+    <string name="addbtn1" translatable="false">Courses</string>
+    <string name="txt1" translatable="false">Add New Course</string>
+    <string name="title_activity_botom_navi">MainActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="title_schedule">Schedule</string>
+    <string name="title_Courses">courses</string>
+    <string name="title_Grades">Grades</string>
+    <string name="exam_schedule">Exam Schedule</string>
+    <string name="add_course">Add Course</string>
+    <string name="add_new_course">Add New Course</string>
+    <string name="all_courses">Courses</string>
+    <string name="new_task">new_course</string>
+    <string name="save">save</string>
+
+
+</resources>
