@@ -24,7 +24,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class StudentSemesterResults extends AppCompatActivity {
+public class StudentSemester3Results extends AppCompatActivity {
     //Initialize variable
     ImageView backbtn;
     Button calculategpasubmitbtn;
@@ -202,14 +202,14 @@ public class StudentSemesterResults extends AppCompatActivity {
         backbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent semesterModNoIntent = new Intent(StudentSemesterResults.this, CalculateGPA.class);
+                Intent semesterModNoIntent = new Intent(StudentSemester3Results.this, CalculateGPA.class);
                 startActivity(semesterModNoIntent);
                 finish();
             }
         });
 
         //Accessing child nodes
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("Semester1").child("Results");
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("Semester3").child("Results");
 
         reference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -244,7 +244,7 @@ public class StudentSemesterResults extends AppCompatActivity {
 
                         maxid +=1;
                         reference.child("Module").child(String.valueOf(maxid)).setValue(results);
-                        Toast.makeText(StudentSemesterResults.this, "Module 1 Details Added Successfully", Toast.LENGTH_LONG).show();
+                        Toast.makeText(StudentSemester3Results.this, "Module 1 Details Added Successfully", Toast.LENGTH_LONG).show();
 
                         //Module 2
                         //Get all the Module 2 Details
@@ -257,7 +257,7 @@ public class StudentSemesterResults extends AppCompatActivity {
 
                         maxid +=1;
                         reference.child("Module").child(String.valueOf(maxid)).setValue(results);
-                        Toast.makeText(StudentSemesterResults.this, "Module 2 Details Added Successfully", Toast.LENGTH_LONG).show();
+                        Toast.makeText(StudentSemester3Results.this, "Module 2 Details Added Successfully", Toast.LENGTH_LONG).show();
 
                         //Module 3
                         //Get all the Module 3 Details
@@ -270,7 +270,7 @@ public class StudentSemesterResults extends AppCompatActivity {
 
                         maxid +=1;
                         reference.child("Module").child(String.valueOf(maxid)).setValue(results);
-                        Toast.makeText(StudentSemesterResults.this, "Module 3 Details Added Successfully", Toast.LENGTH_LONG).show();
+                        Toast.makeText(StudentSemester3Results.this, "Module 3 Details Added Successfully", Toast.LENGTH_LONG).show();
 
                         //Module 4
                         //Get all the Module 4 Details
@@ -283,7 +283,7 @@ public class StudentSemesterResults extends AppCompatActivity {
 
                         maxid +=1;
                         reference.child("Module").child(String.valueOf(maxid)).setValue(results);
-                        Toast.makeText(StudentSemesterResults.this, "Module 4 Details Added Successfully", Toast.LENGTH_LONG).show();
+                        Toast.makeText(StudentSemester3Results.this, "Module 4 Details Added Successfully", Toast.LENGTH_LONG).show();
 
                         //Module 5
                         //Get all the Module 5 Details
@@ -296,13 +296,13 @@ public class StudentSemesterResults extends AppCompatActivity {
 
                         maxid +=1;
                         reference.child("Module").child(String.valueOf(maxid)).setValue(results);
-                        Toast.makeText(StudentSemesterResults.this, "Module 5 Details Added Successfully", Toast.LENGTH_LONG).show();
+                        Toast.makeText(StudentSemester3Results.this, "Module 5 Details Added Successfully", Toast.LENGTH_LONG).show();
                         clear();
                     }
                 } catch (NumberFormatException e) {
                     Toast.makeText(getApplicationContext(), "Invalid Number Type", Toast.LENGTH_LONG).show();
                 }
-                Intent finalGPAIntent = new Intent(StudentSemesterResults.this, FinalGPA.class);
+                Intent finalGPAIntent = new Intent(StudentSemester3Results.this, FinalGPA.class);
 
                 //Grades pass to next intent
                 finalGPAIntent.putExtra("grade1", mod1spinner.getSelectedItem().toString());

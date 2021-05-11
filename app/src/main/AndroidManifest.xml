@@ -10,7 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.EduBank">
         <activity android:name=".FinalGPA" />
+        <activity android:name=".FinalGPASemester2" />
         <activity android:name=".StudentSemesterResults" />
+        <activity android:name=".StudentSemester2Results" />
+        <activity android:name=".StudentSemester3Results" />
         <activity android:name=".CalculateGPA" />
         <activity android:name=".NameUniversity" />
         <activity android:name=".GradePointsAdd"/>

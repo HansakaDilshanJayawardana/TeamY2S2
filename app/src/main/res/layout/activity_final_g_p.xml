@@ -20,9 +20,9 @@
         <TextView
             android:id="@+id/semTitle"
             android:layout_width="match_parent"
-            android:layout_height="125dp"
+            android:layout_height="100dp"
             android:gravity="center"
-            android:text="Semsester 1"
+            android:text="@string/finalGPASemTitle"
             android:textColor="@color/mainColor"
             android:textSize="50sp"
             android:textStyle="bold" />
@@ -31,7 +31,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginTop="75dp"
+            android:layout_marginTop="20dp"
             android:layout_marginLeft="50dp"
             android:layout_marginRight="50dp">
 
@@ -43,7 +43,7 @@
                 android:gravity="center"
                 android:text="GPA : "
                 android:textColor="@color/mainColor"
-                android:textSize="50dp"
+                android:textSize="35dp"
                 android:textStyle="bold" />
 
             <TextView
@@ -54,7 +54,7 @@
                 android:gravity="center"
                 android:text=""
                 android:textColor="@color/mainColor"
-                android:textSize="50dp"
+                android:textSize="35dp"
                 android:textStyle="bold" />
 
             <TextView
@@ -63,7 +63,7 @@
                 android:layout_height="30dp"
                 android:gravity="center"
                 android:text="@string/finalizeGPA"
-                android:textSize="50dp"
+                android:textSize="35dp"
                 android:textColor="#EDA200" />
         </LinearLayout>
 
@@ -71,7 +71,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginTop="75dp"
+            android:layout_marginTop="20dp"
             android:layout_marginLeft="50dp"
             android:layout_marginRight="50dp">
 
@@ -83,7 +83,7 @@
                 android:gravity="center"
                 android:text="CGPA : "
                 android:textColor="@color/mainColor"
-                android:textSize="50dp"
+                android:textSize="35dp"
                 android:textStyle="bold" />
 
             <TextView
@@ -94,7 +94,7 @@
                 android:gravity="center"
                 android:text=""
                 android:textColor="@color/mainColor"
-                android:textSize="50dp"
+                android:textSize="35dp"
                 android:textStyle="bold" />
 
             <TextView
@@ -103,7 +103,7 @@
                 android:layout_height="30dp"
                 android:gravity="center"
                 android:text="@string/finalizeGPA"
-                android:textSize="50dp"
+                android:textSize="35dp"
                 android:textColor="#EDA200" />
         </LinearLayout>
 

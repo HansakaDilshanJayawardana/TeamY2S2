@@ -22,14 +22,14 @@ import com.google.firebase.database.ValueEventListener;
 import java.sql.SQLOutput;
 import java.util.ArrayList;
 
-public class FinalGPA extends AppCompatActivity {
+public class FinalGPASemester2 extends AppCompatActivity {
     //Initialize variable
     ImageView backbtn;
     TextView gpaView, cgpaView;
     Button backtocalculategpabtn;
-    private double gpa;
-    private double cgpa;
-    private double credits;
+    private double gpa2;
+    private double cgpa2;
+    private double credits2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,22 +60,22 @@ public class FinalGPA extends AppCompatActivity {
         String credit5 = finalInetnt.getStringExtra("credit5");
 
         //GPA Calculation
-        gpa = (getGradePoint(grade1) + getGradePoint(grade2) + getGradePoint(grade3) + getGradePoint(grade4) + getGradePoint(grade5))/5;
+        gpa2 = (getGradePoint(grade1) + getGradePoint(grade2) + getGradePoint(grade3) + getGradePoint(grade4) + getGradePoint(grade5))/5;
         //GPA View
-        gpaView.setText(Double.toString(gpa));
+        gpaView.setText(Double.toString(gpa2));
 
         //CGPA Calculation
-        credits = (getCredit(credit1) + getCredit(credit2) + getCredit(credit3) + getCredit(credit4) + getCredit(credit5));
-        cgpa = ((getGradePoint(grade1) * getCredit(credit1)) + (getGradePoint(grade2) * getCredit(credit2)) + (getGradePoint(grade3) * getCredit(credit3)) + (getGradePoint(grade4) * getCredit(credit4)) + (getGradePoint(grade5) * getCredit(credit5))) / credits;
+        credits2 = (getCredit(credit1) + getCredit(credit2) + getCredit(credit3) + getCredit(credit4) + getCredit(credit5));
+        cgpa2 = ((getGradePoint(grade1) * getCredit(credit1)) + (getGradePoint(grade2) * getCredit(credit2)) + (getGradePoint(grade3) * getCredit(credit3)) + (getGradePoint(grade4) * getCredit(credit4)) + (getGradePoint(grade5) * getCredit(credit5))) / credits2;
 
         //CGPA View
-        cgpaView.setText(Double.toString(cgpa));
+        cgpaView.setText(Double.toString(cgpa2));
 
         //Direct to Previous Interface
         backbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent studentSemesterRsultsIntent = new Intent(FinalGPA.this, StudentSemesterResults.class);
+                Intent studentSemesterRsultsIntent = new Intent(FinalGPASemester2.this, StudentSemester2Results.class);
                 startActivity(studentSemesterRsultsIntent);
                 finish();
             }
@@ -85,7 +85,7 @@ public class FinalGPA extends AppCompatActivity {
         backtocalculategpabtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent backCalculateGPAIntent = new Intent(FinalGPA.this, CalculateGPA.class);
+                Intent backCalculateGPAIntent = new Intent(FinalGPASemester2.this, CalculateGPA.class);
                 startActivity(backCalculateGPAIntent);
                 finish();
             }
@@ -120,7 +120,7 @@ public class FinalGPA extends AppCompatActivity {
     }
 
     //getGradePoint method
-    private double getGradePoint(String results){
+    private Double getGradePoint(String results){
         if(results.equals("A")|| results.equals("A+"))
             return 4.0;
         else if(results.equals("A-"))
@@ -146,7 +146,7 @@ public class FinalGPA extends AppCompatActivity {
     }
 
     //getCredit method
-    private double getCredit(String credits){
+    private Double getCredit(String credits){
         if (credits.equals("6"))
             return 6.0;
         else if (credits.equals("5"))
