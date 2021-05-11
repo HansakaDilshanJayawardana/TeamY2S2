@@ -22,8 +22,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import java.util.ArrayList;
-
 public class StudentSemester4Results extends AppCompatActivity {
     //Initialize variable
     ImageView backbtn;
@@ -230,7 +228,7 @@ public class StudentSemester4Results extends AppCompatActivity {
             public void onClick(View v) {
                 try {
                     if (TextUtils.isEmpty(module1.getText().toString()) || TextUtils.isEmpty(module2.getText().toString()) || TextUtils.isEmpty(module3.getText().toString()) || TextUtils.isEmpty(module4.getText().toString()) || TextUtils.isEmpty(module5.getText().toString()))
-                        Toast.makeText(getApplicationContext(), "Please Enter Module Names", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), "Please Enter Student Semester Results Details", Toast.LENGTH_LONG).show();
                     else {
                         reference.child("Module");
                         //Module 1
@@ -244,7 +242,6 @@ public class StudentSemester4Results extends AppCompatActivity {
 
                         maxid +=1;
                         reference.child("Module").child(String.valueOf(maxid)).setValue(results);
-                        Toast.makeText(StudentSemester4Results.this, "Module 1 Details Added Successfully", Toast.LENGTH_LONG).show();
 
                         //Module 2
                         //Get all the Module 2 Details
@@ -257,7 +254,6 @@ public class StudentSemester4Results extends AppCompatActivity {
 
                         maxid +=1;
                         reference.child("Module").child(String.valueOf(maxid)).setValue(results);
-                        Toast.makeText(StudentSemester4Results.this, "Module 2 Details Added Successfully", Toast.LENGTH_LONG).show();
 
                         //Module 3
                         //Get all the Module 3 Details
@@ -270,7 +266,6 @@ public class StudentSemester4Results extends AppCompatActivity {
 
                         maxid +=1;
                         reference.child("Module").child(String.valueOf(maxid)).setValue(results);
-                        Toast.makeText(StudentSemester4Results.this, "Module 3 Details Added Successfully", Toast.LENGTH_LONG).show();
 
                         //Module 4
                         //Get all the Module 4 Details
@@ -283,7 +278,6 @@ public class StudentSemester4Results extends AppCompatActivity {
 
                         maxid +=1;
                         reference.child("Module").child(String.valueOf(maxid)).setValue(results);
-                        Toast.makeText(StudentSemester4Results.this, "Module 4 Details Added Successfully", Toast.LENGTH_LONG).show();
 
                         //Module 5
                         //Get all the Module 5 Details
@@ -296,28 +290,29 @@ public class StudentSemester4Results extends AppCompatActivity {
 
                         maxid +=1;
                         reference.child("Module").child(String.valueOf(maxid)).setValue(results);
-                        Toast.makeText(StudentSemester4Results.this, "Module 5 Details Added Successfully", Toast.LENGTH_LONG).show();
+                        Toast.makeText(StudentSemester4Results.this, "Student Results Details Added Successfully", Toast.LENGTH_LONG).show();
                         clear();
+
+                        Intent finalGPAIntent = new Intent(StudentSemester4Results.this, FinalGPASemester4.class);
+
+                        //Grades pass to next intent
+                        finalGPAIntent.putExtra("grade1", mod1spinner.getSelectedItem().toString());
+                        finalGPAIntent.putExtra("grade2", mod2spinner.getSelectedItem().toString());
+                        finalGPAIntent.putExtra("grade3", mod3spinner.getSelectedItem().toString());
+                        finalGPAIntent.putExtra("grade4", mod4spinner.getSelectedItem().toString());
+                        finalGPAIntent.putExtra("grade5", mod5spinner.getSelectedItem().toString());
+
+                        //Credits pass to next intent
+                        finalGPAIntent.putExtra("credit1", mod1spinner2.getSelectedItem().toString());
+                        finalGPAIntent.putExtra("credit2", mod2spinner1.getSelectedItem().toString());
+                        finalGPAIntent.putExtra("credit3", mod3spinner1.getSelectedItem().toString());
+                        finalGPAIntent.putExtra("credit4", mod4spinner1.getSelectedItem().toString());
+                        finalGPAIntent.putExtra("credit5", mod5spinner1.getSelectedItem().toString());
+                        startActivity(finalGPAIntent);
                     }
                 } catch (NumberFormatException e) {
                     Toast.makeText(getApplicationContext(), "Invalid Number Type", Toast.LENGTH_LONG).show();
                 }
-                Intent finalGPAIntent = new Intent(StudentSemester4Results.this, FinalGPASemester4.class);
-
-                //Grades pass to next intent
-                finalGPAIntent.putExtra("grade1", mod1spinner.getSelectedItem().toString());
-                finalGPAIntent.putExtra("grade2", mod2spinner.getSelectedItem().toString());
-                finalGPAIntent.putExtra("grade3", mod3spinner.getSelectedItem().toString());
-                finalGPAIntent.putExtra("grade4", mod4spinner.getSelectedItem().toString());
-                finalGPAIntent.putExtra("grade5", mod5spinner.getSelectedItem().toString());
-
-                //Credits pass to next intent
-                finalGPAIntent.putExtra("credit1", mod1spinner2.getSelectedItem().toString());
-                finalGPAIntent.putExtra("credit2", mod2spinner1.getSelectedItem().toString());
-                finalGPAIntent.putExtra("credit3", mod3spinner1.getSelectedItem().toString());
-                finalGPAIntent.putExtra("credit4", mod4spinner1.getSelectedItem().toString());
-                finalGPAIntent.putExtra("credit5", mod5spinner1.getSelectedItem().toString());
-                startActivity(finalGPAIntent);
             }
         });
 
