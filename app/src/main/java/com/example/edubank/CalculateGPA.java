@@ -97,8 +97,8 @@ public class CalculateGPA extends AppCompatActivity {
         semster2btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent semesterNoModIntent = new Intent(CalculateGPA.this, StudentSemesterResults.class);
-                startActivity(semesterNoModIntent);
+                Intent semesterNoModIntent2 = new Intent(CalculateGPA.this, StudentSemester2Results.class);
+                startActivity(semesterNoModIntent2);
                 finish();
             }
         });
@@ -106,7 +106,7 @@ public class CalculateGPA extends AppCompatActivity {
         semster3btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent semesterNoModIntent = new Intent(CalculateGPA.this, StudentSemesterResults.class);
+                Intent semesterNoModIntent = new Intent(CalculateGPA.this, StudentSemester3Results.class);
                 startActivity(semesterNoModIntent);
                 finish();
             }

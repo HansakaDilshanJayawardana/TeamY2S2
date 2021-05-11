@@ -49,6 +49,7 @@
     <string name="addbtn">ADD</string>
     <string name="gradepointsaddtitle">Add Grade Points</string>
     <string name="inputresultsbtn">GPA</string>
+    <string name="finalGPASemTitle">SEMESTER</string>
     <string-array name="grades_picker_array">
         <item>A+</item>
         <item>A</item>
