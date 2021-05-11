@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -13,14 +12,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-
-import java.sql.SQLOutput;
-import java.util.ArrayList;
 
 public class FinalGPASemester3 extends AppCompatActivity {
     //Initialize variable
@@ -30,6 +21,8 @@ public class FinalGPASemester3 extends AppCompatActivity {
     private double gpa3;
     private double cgpa3;
     private double credits3;
+    private double total_gpa3;
+    private double cumutative_gradePoints3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,13 +53,21 @@ public class FinalGPASemester3 extends AppCompatActivity {
         String credit5 = finalInetnt.getStringExtra("credit5");
 
         //GPA Calculation
-        gpa3 = (getGradePoint(grade1) + getGradePoint(grade2) + getGradePoint(grade3) + getGradePoint(grade4) + getGradePoint(grade5))/5;
+        //Total Grade Points in Semester 3
+        total_gpa3 = addGPASemThree(getGradePoint(grade1), getGradePoint(grade2), getGradePoint(grade3), getGradePoint(grade4), getGradePoint(grade5));
+        //GPA of Semester 3
+        gpa3 = calculateGPASemThree(total_gpa3, 5.0);
+
         //GPA View
         gpaView.setText(Double.toString(gpa3));
 
         //CGPA Calculation
-        credits3 = (getCredit(credit1) + getCredit(credit2) + getCredit(credit3) + getCredit(credit4) + getCredit(credit5));
-        cgpa3 = ((getGradePoint(grade1) * getCredit(credit1)) + (getGradePoint(grade2) * getCredit(credit2)) + (getGradePoint(grade3) * getCredit(credit3)) + (getGradePoint(grade4) * getCredit(credit4)) + (getGradePoint(grade5) * getCredit(credit5))) / credits3;
+        //Cumulative Credits
+        credits3 = addCreditsSemThree(getCredit(credit1), getCredit(credit2), getCredit(credit3), getCredit(credit4), getCredit(credit5));
+        //Cumulative Grade Points
+        cumutative_gradePoints3 = multiplyGradePointsSemThree(getGradePoint(grade1), getCredit(credit1), getGradePoint(grade2), getCredit(credit2), getGradePoint(grade3), getCredit(credit3), getGradePoint(grade4), getCredit(credit4), getGradePoint(grade5), getCredit(credit5));
+        //CGPA of Semester 3
+        cgpa3 = calculateCGPASemThree(credits3, cumutative_gradePoints3);
 
         //CGPA View
         cgpaView.setText(Double.toString(cgpa3));
@@ -159,5 +160,30 @@ public class FinalGPASemester3 extends AppCompatActivity {
             return 2.0;
         else
             return 1.0;
+    }
+
+    //Semester 3 Total Grade Points Calculation Method
+    private double addGPASemThree(double grade1, double grade2, double grade3, double grade4, double grade5) {
+        return grade1 + grade2 + grade3 + grade4 + grade5;
+    }
+
+    //Semester 3 GPA Calculation Method
+    private double calculateGPASemThree(double total_gpa, double v) {
+        return total_gpa / v;
+    }
+
+    //Cumulative Credits Calculation Method
+    private double addCreditsSemThree(double credit1, double credit2, double credit3, double credit4, double credit5) {
+        return credit1 + credit2 + credit3 + credit4 + credit5;
+    }
+
+    //Cumulative Grade Points Calculation Method
+    private double multiplyGradePointsSemThree(double gradePoint1, double credit1, double gradePoint2, double credit2, double gradePoint3, double credit3, double gradePoint4, double credit4, double gradePoint5, double credit5) {
+        return ((gradePoint1 * credit1) + (gradePoint2 * credit2) + (gradePoint3 * credit3) + (gradePoint4 * credit4) + (gradePoint5 * credit5));
+    }
+
+    //Semester 3 CGPA Calculation Method
+    private double calculateCGPASemThree(double credits, double cumutative_gradePoints) {
+        return cumutative_gradePoints / credits;
     }
 }

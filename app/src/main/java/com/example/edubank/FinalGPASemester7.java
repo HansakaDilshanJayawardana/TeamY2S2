@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -13,14 +12,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-
-import java.sql.SQLOutput;
-import java.util.ArrayList;
 
 public class FinalGPASemester7 extends AppCompatActivity {
     //Initialize variable
@@ -30,6 +21,8 @@ public class FinalGPASemester7 extends AppCompatActivity {
     private double gpa7;
     private double cgpa7;
     private double credits7;
+    private double total_gpa7;
+    private double cumutative_gradePoints7;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,13 +53,21 @@ public class FinalGPASemester7 extends AppCompatActivity {
         String credit5 = finalInetnt.getStringExtra("credit5");
 
         //GPA Calculation
-        gpa7 = (getGradePoint(grade1) + getGradePoint(grade2) + getGradePoint(grade3) + getGradePoint(grade4) + getGradePoint(grade5))/5;
+        //Total Grade Points in Semester 7
+        total_gpa7 = addGPASemSeven(getGradePoint(grade1), getGradePoint(grade2), getGradePoint(grade3), getGradePoint(grade4), getGradePoint(grade5));
+        //GPA of Semester 7
+        gpa7 = calculateGPASemSeven(total_gpa7, 5.0);
+
         //GPA View
         gpaView.setText(Double.toString(gpa7));
 
         //CGPA Calculation
-        credits7 = (getCredit(credit1) + getCredit(credit2) + getCredit(credit3) + getCredit(credit4) + getCredit(credit5));
-        cgpa7 = ((getGradePoint(grade1) * getCredit(credit1)) + (getGradePoint(grade2) * getCredit(credit2)) + (getGradePoint(grade3) * getCredit(credit3)) + (getGradePoint(grade4) * getCredit(credit4)) + (getGradePoint(grade5) * getCredit(credit5))) / credits7;
+        //Cumulative Credits
+        credits7 = addCreditsSemSeven(getCredit(credit1), getCredit(credit2), getCredit(credit3), getCredit(credit4), getCredit(credit5));
+        //Cumulative Grade Points
+        cumutative_gradePoints7 = multiplyGradePointsSemSeven(getGradePoint(grade1), getCredit(credit1), getGradePoint(grade2), getCredit(credit2), getGradePoint(grade3), getCredit(credit3), getGradePoint(grade4), getCredit(credit4), getGradePoint(grade5), getCredit(credit5));
+        //CGPA of Semester 7
+        cgpa7 = calculateCGPASemSeven(credits7, cumutative_gradePoints7);
 
         //CGPA View
         cgpaView.setText(Double.toString(cgpa7));
@@ -159,5 +160,30 @@ public class FinalGPASemester7 extends AppCompatActivity {
             return 2.0;
         else
             return 1.0;
+    }
+
+    //Semester 7 Total Grade Points Calculation Method
+    private double addGPASemSeven(double grade1, double grade2, double grade3, double grade4, double grade5) {
+        return grade1 + grade2 + grade3 + grade4 + grade5;
+    }
+
+    //Semester 7 GPA Calculation Method
+    private double calculateGPASemSeven(double total_gpa, double v) {
+        return total_gpa / v;
+    }
+
+    //Cumulative Credits Calculation Method
+    private double addCreditsSemSeven(double credit1, double credit2, double credit3, double credit4, double credit5) {
+        return credit1 + credit2 + credit3 + credit4 + credit5;
+    }
+
+    //Cumulative Grade Points Calculation Method
+    private double multiplyGradePointsSemSeven(double gradePoint1, double credit1, double gradePoint2, double credit2, double gradePoint3, double credit3, double gradePoint4, double credit4, double gradePoint5, double credit5) {
+        return ((gradePoint1 * credit1) + (gradePoint2 * credit2) + (gradePoint3 * credit3) + (gradePoint4 * credit4) + (gradePoint5 * credit5));
+    }
+
+    //Semester 7 CGPA Calculation Method
+    private double calculateCGPASemSeven(double credits, double cumutative_gradePoints) {
+        return cumutative_gradePoints / credits;
     }
 }

@@ -51,6 +51,7 @@
     <string name="inputresultsbtn">GPA</string>
     <string name="finalGPASemTitle">SEMESTER</string>
     <string-array name="grades_picker_array">
+        <item>G</item>
         <item>A+</item>
         <item>A</item>
         <item>A-</item>
@@ -65,11 +66,12 @@
         <item>E</item>
     </string-array>
     <string-array name="credits_picker_array">
-        <item>6</item>
-        <item>5</item>
-        <item>4</item>
-        <item>3</item>
-        <item>2</item>
+        <item>0</item>
         <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
     </string-array>
 </resources>
