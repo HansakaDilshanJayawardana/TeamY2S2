@@ -302,7 +302,7 @@ public class StudentSemester3Results extends AppCompatActivity {
                 } catch (NumberFormatException e) {
                     Toast.makeText(getApplicationContext(), "Invalid Number Type", Toast.LENGTH_LONG).show();
                 }
-                Intent finalGPAIntent = new Intent(StudentSemester3Results.this, FinalGPA.class);
+                Intent finalGPAIntent = new Intent(StudentSemester3Results.this, FinalGPASemester3.class);
 
                 //Grades pass to next intent
                 finalGPAIntent.putExtra("grade1", mod1spinner.getSelectedItem().toString());
