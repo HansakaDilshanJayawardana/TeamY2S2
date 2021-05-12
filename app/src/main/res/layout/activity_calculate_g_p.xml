@@ -80,35 +80,6 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/studentdetailsmarginleft"
-                android:gravity="center"
-                android:text="CGPA : "
-                android:textColor="@color/mainColor"
-                android:textSize="@dimen/studentdetailstextsize"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/cGPA"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/studentdetailsmarginleft"
-                android:background="@color/transparent"
-                android:ems="10"
-                android:foregroundGravity="center"
-                android:inputType="number"
-                android:text="@string/cGPA"
-                android:textSize="@dimen/studentdetailstextsize"
-                android:textColor="@color/mainColor" />
-        </LinearLayout>
-
-        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
