@@ -27,7 +27,7 @@
         <activity android:name=".StudentSemester8Results" />
         <activity android:name=".CalculateGPA" />
         <activity android:name=".NameUniversity" />
-        <activity android:name=".GradePointsAdd"/>
+        <activity android:name=".GradePointsAdd" />
         <activity android:name=".GPASettings" />
         <activity android:name=".GPAMainActivity">
             <intent-filter>

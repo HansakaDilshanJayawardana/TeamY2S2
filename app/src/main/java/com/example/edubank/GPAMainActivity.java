@@ -83,7 +83,7 @@ public class GPAMainActivity extends AppCompatActivity {
         openDrawer(drawerLayout);
     }
 
-    private static void openDrawer(DrawerLayout drawerLayout) {
+    public static void openDrawer(DrawerLayout drawerLayout) {
         //Open drawer Layout
         drawerLayout.openDrawer(GravityCompat.START);
     }
@@ -93,7 +93,7 @@ public class GPAMainActivity extends AppCompatActivity {
         closeDrawer(drawerLayout);
     }
 
-    private static void closeDrawer(DrawerLayout drawerLayout) {
+    public static void closeDrawer(DrawerLayout drawerLayout) {
         //Close drawer layout
         //Check condition
         if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
@@ -123,7 +123,7 @@ public class GPAMainActivity extends AppCompatActivity {
         redirectActivity(this,);
     }
 
-    private static void redirectActivity(Activity activity, Class aClass) {
+    public static void redirectActivity(Activity activity, Class aClass) {
         //Intialize activity
         Intent intent = new Intent(activity, aClass);
         //Set flag
