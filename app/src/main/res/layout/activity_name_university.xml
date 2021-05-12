@@ -18,7 +18,7 @@
         <include layout="@layout/back_nav_bar"/>
 
         <TextView
-            android:id="@+id/gpaTitle"
+            android:id="@+id/aboutTitle"
             android:layout_width="match_parent"
             android:layout_height="125dp"
             android:gravity="center"

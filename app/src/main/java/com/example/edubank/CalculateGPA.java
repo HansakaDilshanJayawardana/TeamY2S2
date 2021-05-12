@@ -15,6 +15,7 @@ import android.widget.Toast;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
@@ -22,7 +23,7 @@ import com.google.firebase.database.ValueEventListener;
 public class CalculateGPA extends AppCompatActivity {
     //Initialize variable
     ImageView backbtn;
-    Button semster1btn, semster2btn, semster3btn, semster4btn, semster5btn, semster6btn, semster7btn, semster8btn;
+    Button semster1btn, semster2btn, semster3btn, semster4btn, semster5btn, semster6btn, semster7btn, semster8btn,clearallresultsbtn;
     TextView studentName, universityName;
     String usernameFromDB;
 
@@ -44,6 +45,7 @@ public class CalculateGPA extends AppCompatActivity {
         semster8btn = findViewById(R.id.semster8btn);
         universityName = findViewById(R.id.universityName);
         studentName = findViewById(R.id.studentName);
+        clearallresultsbtn = findViewById(R.id.clearallresultsbtn);
 
         //Accessing Child Nodes Using Singleton
         Query checkUser = FirebaseDatabase.getInstance().getReference("UserDetails").child(String.valueOf(CurrentGPAUser.getInstance().getMaxId()));
@@ -151,6 +153,34 @@ public class CalculateGPA extends AppCompatActivity {
                 Intent semesterNoModIntent = new Intent(CalculateGPA.this, StudentSemester8Results.class);
                 startActivity(semesterNoModIntent);
                 finish();
+            }
+        });
+
+        //Clear All Student Results Button
+        clearallresultsbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Accessing Child Nodes
+                DatabaseReference clearSem1DBRef = FirebaseDatabase.getInstance().getReference().child("Semester1");
+                DatabaseReference clearSem2DBRef = FirebaseDatabase.getInstance().getReference().child("Semester2");
+                DatabaseReference clearSem3DBRef = FirebaseDatabase.getInstance().getReference().child("Semester3");
+                DatabaseReference clearSem4DBRef = FirebaseDatabase.getInstance().getReference().child("Semester4");
+                DatabaseReference clearSem5DBRef = FirebaseDatabase.getInstance().getReference().child("Semester5");
+                DatabaseReference clearSem6DBRef = FirebaseDatabase.getInstance().getReference().child("Semester6");
+                DatabaseReference clearSem7DBRef = FirebaseDatabase.getInstance().getReference().child("Semester7");
+                DatabaseReference clearSem8DBRef = FirebaseDatabase.getInstance().getReference().child("Semester8");
+
+                //Set the values at DB tables to 'null' (Remove the semester tables)
+                clearSem1DBRef.removeValue();
+                clearSem2DBRef.removeValue();
+                clearSem3DBRef.removeValue();
+                clearSem4DBRef.removeValue();
+                clearSem5DBRef.removeValue();
+                clearSem6DBRef.removeValue();
+                clearSem7DBRef.removeValue();
+                clearSem8DBRef.removeValue();
+
+                Toast.makeText(getApplicationContext(), "Successfully Remove Student Results", Toast.LENGTH_LONG).show();
             }
         });
 
