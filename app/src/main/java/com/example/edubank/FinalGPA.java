@@ -121,7 +121,7 @@ public class FinalGPA extends AppCompatActivity {
     }
 
     //getGradePoint method
-    private double getGradePoint(String results){
+    protected double getGradePoint(String results){
         if(results.equals("A")|| results.equals("A+"))
             return 4.0;
         else if(results.equals("A-"))
@@ -147,7 +147,7 @@ public class FinalGPA extends AppCompatActivity {
     }
 
     //getCredit method
-    private double getCredit(String credits){
+    protected double getCredit(String credits){
         if (credits.equals("6"))
             return 6.0;
         else if (credits.equals("5"))
@@ -163,27 +163,27 @@ public class FinalGPA extends AppCompatActivity {
     }
 
     //Semester 1 Total Grade Points Calculation Method
-    private double addGPASemOne(double grade1, double grade2, double grade3, double grade4, double grade5) {
+    protected double addGPASemOne(double grade1, double grade2, double grade3, double grade4, double grade5) {
         return grade1 + grade2 + grade3 + grade4 + grade5;
     }
 
     //Semester 1 GPA Calculation Method
-    private double calculateGPASemOne(double total_gpa, double v) {
+    protected double calculateGPASemOne(double total_gpa, double v) {
         return total_gpa / v;
     }
 
     //Cumulative Credits Calculation Method
-    private double addCreditsSemOne(double credit1, double credit2, double credit3, double credit4, double credit5) {
+    protected double addCreditsSemOne(double credit1, double credit2, double credit3, double credit4, double credit5) {
         return credit1 + credit2 + credit3 + credit4 + credit5;
     }
 
     //Cumulative Grade Points Calculation Method
-    private double multiplyGradePointsSemOne(double gradePoint1, double credit1, double gradePoint2, double credit2, double gradePoint3, double credit3, double gradePoint4, double credit4, double gradePoint5, double credit5) {
+    protected double multiplyGradePointsSemOne(double gradePoint1, double credit1, double gradePoint2, double credit2, double gradePoint3, double credit3, double gradePoint4, double credit4, double gradePoint5, double credit5) {
         return ((gradePoint1 * credit1) + (gradePoint2 * credit2) + (gradePoint3 * credit3) + (gradePoint4 * credit4) + (gradePoint5 * credit5));
     }
 
     //Semester 1 CGPA Calculation Method
-    private double calculateCGPASemOne(double credits, double cumutative_gradePoints) {
+    protected double calculateCGPASemOne(double credits, double cumutative_gradePoints) {
         return cumutative_gradePoints / credits;
     }
 
